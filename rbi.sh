@@ -20,8 +20,8 @@ bind 0.0.0.0
 protected-mode no
 save ""
 appendonly no
-requirepass payeco@Redis!Cluster
-masterauth payeco@Redis!Cluster
+requirepass Test@Redis!Cluster
+masterauth Test@Redis!Cluster
 logfile "/var/log/redis/redis.log"
 EOF
 
@@ -63,4 +63,4 @@ done
 echo "即将创建Redis Cluster，确认信息无误后，输入yes并回车"
 sleep 2
 ssh ${MasterIP[0]} " 
-redis-cli -a payeco@Redis\!Cluster --cluster create --cluster-replicas 1 ${nodeCount[0]}:6379 ${nodeCount[1]}:6379 ${nodeCount[2]}:6379 ${nodeCount[3]}:6379 ${nodeCount[4]}:6379 ${nodeCount[5]}:6379"
+redis-cli -a Test@Redis\!--cluster create --cluster-replicas 1 ${nodeCount[0]}:6379 ${nodeCount[1]}:6379 ${nodeCount[2]}:6379 ${nodeCount[3]}:6379 ${nodeCount[4]}:6379 ${nodeCount[5]}:6379"
